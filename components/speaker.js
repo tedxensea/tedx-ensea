@@ -13,17 +13,17 @@ export default function Speaker(props) {
             height="512"
         />
 
-        <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+        <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
             <blockquote>
-                <p class="text-lg font-medium">
+                <p className="text-lg font-medium">
                     {props.text}
                 </p>
             </blockquote>
-            <figcaption class="font-medium">
-                <div class="text-sky-500 dark:text-sky-400">
+            <figcaption className="font-medium">
+                <div className="text-sky-500 dark:text-sky-400">
                     {props.firstName} {props.lastName}
                 </div>
-                <div class="text-slate-700 dark:text-slate-500">
+                <div className="text-slate-700 dark:text-slate-500">
                     {props.description}
                 </div>
             </figcaption>
