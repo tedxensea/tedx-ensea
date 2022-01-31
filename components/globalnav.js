@@ -91,7 +91,7 @@ export default function GlobalNav() {
                     <Controls />
                     <Logo />
                     <Persistent>
-                        // Add Pages here if needed (top right corner on mobiles)
+                        
                     </Persistent>
                 </div>
                 <List />
