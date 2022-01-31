@@ -3,6 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+function GlobalNav() {
+  return <p>GlobalNav</p>
+}
+
 function GlobalFooter() {
   return <p>GlobalFooter</p>
 }
