@@ -220,20 +220,6 @@ export default function Home() {
       />
 
 
-      <Section
-        eyebrow="Notre événement"
-        headline="Ouvert à tous, susceptible d&apos;intéresser n&apos;importe qui, peu importe son âge, niveau d&apos;étude ou domaine de travail."
-        id="event"
-      >
-        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
-        Le thème &quot;ESCAPE&quot; a été choisi dans la lignée des deux précédentes éditions du TEDxENSEA (&quot;Bring Down the Walls&quot; et &quot;Explore New Paths&quot;), avec la volonté d'amener les gens à reconsidérer leur façon de penser et remettre en question ce qu'ils prenaient pour acquis.
-        </p>
-        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%] mt-4'>
-        Et, c&apos;est également pour répondre à cette idée que nous avons soigneusement sélectionné nos 7 speakers.
-        </p>
-      </Section>
-
-
       
 
     </Layout>
