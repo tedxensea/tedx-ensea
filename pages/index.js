@@ -2,13 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
-function GlobalNav() {
-  return <p>GlobalNav</p>
-}
+import GlobalNav from '../components/globalnav'
 
 function GlobalFooter() {
-  return <p>GlobalFooter</p>
+  return <p className='mt-24 text-center'>Copyright © 2018-2022 TEDxENSEA. Tous droits réservés.</p>
 }
 
 function Layout({ children }) {
@@ -36,19 +33,24 @@ function Container({children}) {
 
 function HeroSection(props) {
   return (
-    <header className='pt-16 text-center'>
+    <header
+      className='py-[170px] bg-fixed bg-cover bg-top text-center bg-[#EB2E15]'
+      style={{
+          backgroundImage: `url(/images/header.png`,
+        }}
+      >
       <Container>
-        <p className='mt-3 text-2xl font-normal'>
+        <p className='mt-3 text-2xl font-medium'>
           {props.eyebrow}
         </p>
 
-        <h1 className='mt-4 text-8xl font-extrabold cursor-default select-none'>
+        <h1 className='mt-4 text-6xl font-black cursor-default select-none'>
           <span className='bg-clip-text text-transparent bg-gradient-to-br from-slate-50 to-slate-200'>
             {props.headline}
           </span>
         </h1>
 
-        <p className='mt-6 text-xl font-light'>
+        <p className='mt-6 text-xl font-normal'>
           <span className='block'>
             {props.date}
           </span>
@@ -59,12 +61,12 @@ function HeroSection(props) {
         <ul className='mt-8 flex flex-col md:flex-row gap-x-4 gap-y-2 justify-center font-medium'>
           <li>
             <Link href={props.ctaP_url}>
-              <a className='rounded-full bg-red-600 inline-block px-4 py-2 hover:bg-red-500'>
+              <a className='rounded-full bg-none border-2 border-slate-50 text-slate-50 inline-block px-4 py-2 hover:bg-slate-50 hover:text-red-800'>
                 {props.ctaP}
               </a>
             </Link>
           </li>
-          <li>
+          <li className='pt-2'>
             <Link href={props.ctaS_url}>
               <a className='hover:underline'>
                 {props.ctaS}
@@ -79,15 +81,15 @@ function HeroSection(props) {
 
 function Section(props) {
   return (
-    <section>
+    <section id={props.id} className='pt-[170px]'>
       <Container>
 
-        <h2 className='mt-8 text-3xl sm:text-4xl font-extrabold tracking-tight text-red-50'>
-          {props.headline}
+        <h2 className='mt-[-44px] text-5xl sm:mt-[-3px] sm:text-6xl lg:mt-[44px] lg:text-7xl text-[#A1A1A6] font-bold'>
+          {props.eyebrow}
         </h2>
 
-        <p className='mt-4 max-w-3xl space-y-6'>
-          {props.eyebrow}
+        <p className='mt-[-4px] lg:mt-[-2px] text-5xl sm:text-6xl lg:text-7xl text-=[#fff] font-bold max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
+          {props.headline}
         </p>
 
         <div className='mt-8'>
@@ -110,7 +112,7 @@ function SpeakerCardStack({ children }) {
 class SpeakerCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: true};
+    this.state = {isToggleOn: false};
 
     this.handleClick = this.handleClick.bind(this);
 
@@ -157,7 +159,7 @@ class SpeakerCard extends React.Component {
               {this.props.firstName} {this.props.lastName}
             </div>
             <div className='mt-4 font-medium text-lg'>
-              {this.props.title}
+              {this.props.title}s
             </div>
           </figcaption>
 
@@ -173,7 +175,7 @@ class SpeakerCard extends React.Component {
 
 function Team({ children }) {
   return (
-    <div className='flex flex-wrap justify-between'>
+    <div className='grid grid-cols-none sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {children}
     </div>
   )
@@ -181,12 +183,14 @@ function Team({ children }) {
 
 function TeamMember(props) {
   return (
-    <figure className='group relative max-w-sm transition ease-in-out hover:scale-[1.007]'>
-      <div
-        className='aspect-square overflow-hidden bg-cover bg-center rounded-full drop-shadow-xl  group-hover:sepia group-hover:blur-sm'
-        style={{
-          backgroundImage: `url(/images/team/${props.firstName}-${props.lastName}.jpg)`,
-        }}></div>
+    <div className='group max-w-sm transition ease-in-out hover:scale-[1.007]'>
+      <div className='rounded-full overflow-hidden'>
+        <div
+          className='aspect-square bg-cover bg-center drop-shadow-xl  group-hover:sepia group-hover:blur-sm'
+          style={{
+            backgroundImage: `url(/images/team/${props.firstName}-${props.lastName}.jpg)`,
+          }}></div>
+      </div>
       <figcaption className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  invisible group-hover:visible text-center'>
         <div className='text-xl font-bold'>
           {props.firstName} {props.lastName}
@@ -195,11 +199,12 @@ function TeamMember(props) {
           {props.role}
         </div>
       </figcaption>
-    </figure>
+    </div>
   )
 }
 
 export default function Home() {
+
   return (
     <Layout>
 
@@ -209,61 +214,27 @@ export default function Home() {
         date="Samedi 5 février 2022"
         location="Auditorium de l'IPSL"
         ctaP="Acheter votre billet"
-        ctaP_url="#"
+        ctaP_url="https://ted-x-ensea.herokuapp.com/checkout"
         ctaS="Voir les speakers"
-        ctaS_url="#"
+        ctaS_url="#speakers"
       />
 
 
       <Section
-        headline="Nos Speakers"
-        eyebrow="Avec la volonté d'amener les gens à reconsidérer leur façon de penser et remettre en question ce qu'ils prennent pour acquis, nous avons soigneusement sélectionné nos 7 speakers."
+        eyebrow="Notre événement"
+        headline="Ouvert à tous, susceptible d&apos;intéresser n&apos;importe qui, peu importe son âge, niveau d&apos;étude ou domaine de travail."
+        id="event"
       >
-        <SpeakerCardStack>
-          <SpeakerCard
-            firstName="Alain"
-            lastName="Brunet"
-            title="Comment faire face aux troubles du stress post-traumatique ?"
-            description={
-              <p>
-                Alain est professeur à l'université McGill depuis 20 ans et membre de l’académie des sciences de la santé, au Canada.
-                À la suite d’une expérience personnelle, il a eu envie d'aider les personnes ayant subi des chocs traumatiques.
-                Cet intérêt lui a conduit à effectuer des recherches en neurosciences sur le rôle de la mémoire dans la persistance du traumatisme.
-                Sur la base de ces travaux, une thérapie innovante a été proposée aux victimes du Bataclan et de Nice.
-                En parallèle, il a également co-dirigé pendant quelques années le <i>Journal of Traumatic Stress</i> et <i>l'International Society for Traumatic Stress Studies</i>.
-              </p>
-            }
-          />
-          <SpeakerCard
-            firstName="Catherine"
-            lastName="Heilbronner"
-            title="Comment faire face aux troubles du stress post-traumatique ?"
-            description={
-              <p>
-                Alain est professeur à l'université McGill depuis 20 ans et membre de l’académie des sciences de la santé, au Canada.
-                À la suite d’une expérience personnelle, il a eu envie d'aider les personnes ayant subi des chocs traumatiques.
-                Cet intérêt lui a conduit à effectuer des recherches en neurosciences sur le rôle de la mémoire dans la persistance du traumatisme.
-                Sur la base de ces travaux, une thérapie innovante a été proposée aux victimes du Bataclan et de Nice.
-                En parallèle, il a également co-dirigé pendant quelques années le <i>Journal of Traumatic Stress</i> et <i>l'International Society for Traumatic Stress Studies</i>.
-              </p>
-            }
-          />
-        </SpeakerCardStack>
+        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
+        Le thème &quot;ESCAPE&quot; a été choisi dans la lignée des deux précédentes éditions du TEDxENSEA (&quot;Bring Down the Walls&quot; et &quot;Explore New Paths&quot;), avec la volonté d'amener les gens à reconsidérer leur façon de penser et remettre en question ce qu'ils prenaient pour acquis.
+        </p>
+        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%] mt-4'>
+        Et, c&apos;est également pour répondre à cette idée que nous avons soigneusement sélectionné nos 7 speakers.
+        </p>
       </Section>
 
 
-      <Section
-        headline="Notre équipe"
-        eyebrow="Découvrez notre équipe"
-      >
-        <TeamMember
-          firstName="Noah"
-          lastName="Delcourt"
-          role="Président de la structure Confér'ENSEA"
-        />
-        
-      </Section>
-
+      
 
     </Layout>
   )

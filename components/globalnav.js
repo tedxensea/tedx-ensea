@@ -1,18 +1,7 @@
 
-import Link from "next/link"
+import Link from "next/link";
+import React, { useState } from "react";
 
-function Controls() {
-    return (
-        <div className="gn-controls">
-            <button className="gn-toggle">
-                <span className="gn-toggle-icon">
-                    <span className="gn-toggle-icon-line gn-toggle-icon-line--top"></span>
-                    <span className="gn-toggle-icon-line gn-toggle-icon-line--bottom"></span>
-                </span>
-            </button>
-        </div>
-    )
-}
 
 function Logo() {
     return (
@@ -47,33 +36,38 @@ function Page(props) {
 function Checkout(props) {
     return (
         <li className="gn-item gn-item--cta">
-            <a href="#" className="button button--primary button--compact">{props.name}</a>
+            <a href="https://ted-x-ensea.herokuapp.com/checkout" className="button button--primary button--compact">{props.name}</a>
         </li>
     )
 }
 
 function List(props) {
+
+    const isActive = props.isActive;
+
+    const divClasses = "gn-list"
+    if (isActive) {
+        divClasses += " is-active"
+    }
+
     return (
-        <div className="gn-list">
+        <div className={divClasses}>
             <ul className="gn-list-pages">
                 <Page
-                    name="Evénements"
-                    url="#"
+                    name="Evénement"
+                    url="#event"
                 />
                 <Page
-                    name="Intervenants"
-                    url="#"
+                    name="Speakers"
+                    url="#speakers"
                 />
                 <Page
                     name="Equipe"
-                    url="#"
+                    url="#team"
                 />
             </ul>
             <div className="gn-list-auth">
                 <ul className="gn-list-auth-actions">
-                    <Page
-                        name="Actualités"
-                        url="#" />
                     <Checkout
                         name="Billetterie"
                     />
@@ -84,17 +78,45 @@ function List(props) {
 }
 
 export default function GlobalNav() {
+
+    const [isActive, toggle] = useState(false);
+
+    function Controls(props) {
+    
+        const topIconClasses = "gn-toggle-icon-line gn-toggle-icon-line--top";
+        const bottomIconClasses = "gn-toggle-icon-line gn-toggle-icon-line--bottom";
+    
+        if (isActive) {
+            topIconClasses += " is-active"
+            bottomIconClasses += " is-active"
+        }
+    
+        return (
+            <div className="gn-controls">
+                <button className="gn-toggle" onClick={() => toggle(!isActive)}>
+                    <span className="gn-toggle-icon">
+                        <span className={topIconClasses}></span>
+                        <span className={bottomIconClasses}></span>
+                    </span>
+                </button>
+            </div>
+        )
+    }
+
     return (
         <nav className="globalnav gn--transparent">
             <div className="gn-content">
-                <div className="gn-header">
-                    <Controls />
+                <div className="gn-header is-active">
+                    <Controls
+                        isActive={isActive}
+                    />
                     <Logo />
-                    <Persistent>
-                        
+                    <Persistent>       
                     </Persistent>
                 </div>
-                <List />
+                <List
+                    isActive={isActive}
+                />
             </div>
         </nav>
     )

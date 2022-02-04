@@ -192,8 +192,18 @@
         top: 0.4375rem;
     }
 
+    .gn-toggle-icon-line--top.is-active {
+        top: .6875rem;
+        transform: rotate(45deg);
+    }
+
     .gn-toggle-icon-line--bottom {
         bottom: 0.4375rem;
+    }
+
+    .gn-toggle-icon-line--bottom.is-active {
+        bottom: .6875rem;
+        transform: rotate(-45deg);
     }
 
     .gn-persistent, .gn-persistent-actions {

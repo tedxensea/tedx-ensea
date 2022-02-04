@@ -20,8 +20,7 @@ export default function Event2022() {
             <Header
                 edition="2022"
                 title="Escape"
-                description="Le thème 'ESCAPE' a été choisi dans la lignée des deux précédentes éditions du TEDxENSEA ('Bring Down the Walls' et 'Explore New Paths'), avec la volonté d'amener les gens à reconsidérer leur façon de penser et remettre en question ce qu'ils prenaient pour acquis.
-                C'est avec cet état d'esprit que nous avons voulu organiser un événement ouvert à tous, susceptible d'intéresser n'importe qui, peu importe son âge, niveau d'étude ou domaine de travail, et c'est également pour répondre à cette idée que nous avons soigneusement sélectionné nos 7 speakers."
+                description=""
             />
 
             <Section
