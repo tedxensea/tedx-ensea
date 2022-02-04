@@ -5,7 +5,7 @@ import React from 'react'
 import GlobalNav from '../components/globalnav'
 
 function GlobalFooter() {
-  return <p className='mt-24 text-center'>Copyright © 2018-2022 TEDxENSEA. Tous droits réservés.</p>
+  return <p className='mt-24 mb-4 text-center text-sm'>Copyright © 2018-2022 TEDxENSEA. Tous droits réservés.</p>
 }
 
 function Layout({ children }) {
@@ -103,7 +103,7 @@ function Section(props) {
 
 function SpeakerCardStack({ children }) {
   return (
-    <div className='grid grid-cols-none sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+    <div className='grid grid-cols-none sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16'>
       {children}
     </div>
   )
@@ -159,7 +159,7 @@ class SpeakerCard extends React.Component {
               {this.props.firstName} {this.props.lastName}
             </div>
             <div className='mt-4 font-medium text-lg'>
-              {this.props.title}s
+              {this.props.title}
             </div>
           </figcaption>
 
@@ -220,7 +220,7 @@ export default function Home() {
       />
 
 
-<Section
+      <Section
         eyebrow="Notre événement"
         headline="Ouvert à tous, susceptible d&apos;intéresser n&apos;importe qui, peu importe son âge, niveau d&apos;étude ou domaine de travail."
         id="event"
@@ -233,6 +233,62 @@ export default function Home() {
         </p>
       </Section>
 
+      <Section
+        eyebrow="Nos speakers"
+        headline="Une thématique, ESCAPE. Un seul objectif, tous vous faire voyager à travers leurs prises de parole."
+        id="speakers"
+      >
+        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
+        Chaque intervenant vient dans le seul objectif de diffuser des idées qui lui sont chères, et qui en valent la peine !
+        </p>
+
+        <SpeakerCardStack>
+          <SpeakerCard
+            firstName="Alain"
+            lastName="Brunet"
+            title="Survivre au trouble du stress post-traumatique"
+            description="À la suite d&apos;une expérience personnelle, j&apos;ai eu envie d'aider les personnes ayant subi des chocs traumatiques. Cet intérêt m&apos;a conduit à effectuer des recherches en neurosciences sur le rôle de la mémoire dans la persistance du traumatisme. Sur la base de ces travaux, une thérapie innovante a été proposée aux victimes du Bataclan et de Nice. En parallèle, j&apos;ai aussi codirigé pendant quelques années le Journal of Traumatic Stress et l&apos;International Society for Traumatic Stress Studies. Je suis professeur à l&apos;université McGill depuis 20 ans et membre de l’académie des sciences de la santé, au Canada."
+          />
+          <SpeakerCard
+            firstName="Catherine"
+            lastName="Heilbronner"
+            title="Du bégaiement à la parole libre"
+            description="Après avoir démarré par le théâtre, j&apos;ai passé 25 ans en entreprise dans la communication, la vente et les RH avant de créer ma société, Adlevo, dédiée au développement de l&apos;Humain dans son relationnel, son comportement et sa communication avec les autres. Passionnée par la prise de parole et l&apos;efficacité relationnelle, qui sont indissociables pour moi, je suis spécialisée dans l&apos;art du Pitch et la valorisation de soi ou de son projet à travers l&apos;éloquence, la posture, la capacité à être soi avec authenticité, à capter son auditoire avec Sourire, Enthousiasme et Conviction."
+          />
+          <SpeakerCard
+            firstName="Dominique"
+            lastName="Sciamma"
+            title="S&apos;échapper pour s’engager"
+            description="Titulaire d&apos;une Maîtrise de mathématiques, d&apos;une maîtrise et d&apos;un DEA en informatique théorique, et après une carrière éclectique au sein d&apos;entreprises internationales, Dominique Sciamma crée la première école de design dans une université (rentrée septembre 2021), après avoir dirigé Strate école de design pendant 7 ans jusqu'en septembre 2020. Avant de diriger Strate, il a successivement créé et dirigé son département &quot;Systèmes et Objets Intelligents&quot; et son activité de recherche. Surfant toujours sur les nouvelles technologies, il a successivement travaillé comme chercheur en IA, développeur de logiciels, directeur marketing, responsable d'une business unit IA à Singapour, consultant en stratégie (pour Bull), responsable d&apos;une équipe de résolution de problèmes complexes, marketing multimédia (pour EDS), éditeur électronique (pour le journal La Tribune), auteur multimédia, auteur de CMS (en tant que consultant numérique indépendant), avant de s&apos;investir avec passion dans la pédagogie du design dès 1998. Figure marquante de l&apos;écosystème du design en France, Dominique Sciamma est un promoteur déterminé du design transformateur, par ses actions, ses paroles et ses écrits. En tant que président de l&apos;APCI, la principale association française de promotion du design, il a joué un rôle très actif dans les Assises Nationales du Design (2019) pour la mise en place d&apos;une politique nationale du design. Il est membre du Conseil National du Design."
+          />
+          <SpeakerCard
+            firstName="Esther"
+            lastName="Ziegler"
+            title="Le violoncelle, une vibration de l&apos;âme"
+            description="Titulaire d&apos;une Maîtrise de mathématiques, d&apos;une maîtrise et d&apos;un DEA en informatique théorique, et après une carrière éclectique au sein d'entreprises internationales, Dominique crée la première école de design dans une université en septembre 2021, après avoir dirigé Strate école de design pendant 7 ans jusqu'en septembre 2020. Surfant toujours sur les nouvelles technologies, il a longtemps travaillé dans ce domaine, avant de s&apos;investir avec passion dans la pédagogie du design dès 1998. Figure marquante de l&apos;écosystème du design en France, Dominique est un promoteur déterminé du design transformateur par ses actions, ses paroles et ses écrits. En tant que président de l'APCI, la principale association française de promotion du design, il a joué un rôle très actif dans les Assises Nationales du Design, pour la mise en place d&apos;une politique nationale dans ce domaine. Il est de plus membre du Conseil National du Design."
+          />
+          <SpeakerCard
+            firstName="Julia"
+            lastName="Voisin"
+            title="Avons-nous besoin d&apos;un mentor?"
+            description="Julia Voisin souhaite utiliser la parole, l&apos;écriture et le dessin au service de messages optimistes et engagés. Après un Bachelor à King&apos;s College London et deux ans d&apos;expérience dans le marché de l&apos;art, elle a continué ses études avec un Master en droit et histoire de l&apos;art à l&apos;Université Paris I Panthéon-Sorbonne. En devenant présidente de l&apos;AMMA, l&apos;association de son Master 2, elle a pris conscience du rôle des mentors, de ce qu'ils nous transmettent mais aussi de l'importance de s&apos;en affranchir pour s&apos;affirmer et s&apos;épanouir."
+          />
+          <SpeakerCard
+            firstName="Laurent"
+            lastName="Veyet"
+            title="Pourquoi les insectes ne sont-ils toujours pas dans nos assiettes en 2022?"
+            description="En Europe, Laurent est le premier chef à avoir ouvert un restaurant où insectes et légumes de saison cohabitent dans l&apos;assiette. Les insectes ne sont pas son premier défi. En 1996, il avait lancé sa société de chef à domicile, Chef Service, une première en France, à l&apos;époque. Avec Inoveat, il se retrouve encore précurseur et fidèle à ses convictions : cuisine éco-responsable, saine et locale."
+          />
+          <SpeakerCard
+            firstName="Nassim"
+            lastName="Larfa"
+            title="Pourquoi les insectes ne sont-ils toujours pas dans nos assiettes en 2022?"
+            description="En Europe, Laurent est le premier chef à avoir ouvert un restaurant où insectes et légumes de saison cohabitent dans l&apos;assiette. Les insectes ne sont pas son premier défi. En 1996, il avait lancé sa société de chef à domicile, Chef Service, une première en France, à l&apos;époque. Avec Inoveat, il se retrouve encore précurseur et fidèle à ses convictions : cuisine éco-responsable, saine et locale."
+          />
+
+        </SpeakerCardStack>
+          
+      </Section>
 
     </Layout>
   )
