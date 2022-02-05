@@ -189,7 +189,7 @@ function Pole(props) {
           {props.description}
         </p>
       </header>
-      <div className='grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
+      <div className='mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center justify-items-center'>
         {props.children}
       </div>
     </div>
@@ -197,20 +197,26 @@ function Pole(props) {
 }
 
 function TeamMember(props) {
+
+  const lastNameArray = props.lastName.split(' ');
+  const prefixLastName = lastNameArray[0];
+
+  console.log(prefixLastName)
+
   return (
-    <div className='group max-w-sm transition ease-in-out hover:scale-[1.007]'>
+    <div className='group max-w-sm transition ease-in-out hover:scale-[1.007] w-full'>
       <div className='rounded-full overflow-hidden'>
         <div
-          className='aspect-square bg-cover bg-center drop-shadow-xl  group-hover:sepia group-hover:blur-sm'
+          className='aspect-square bg-cover bg-center drop-shadow-xl  group-hover:grayscale group-hover:blur-sm'
           style={{
-            backgroundImage: `url(/images/team/${props.firstName}-${props.lastName}.jpg)`,
+            backgroundImage: `url(/images/team/${props.firstName}-${prefixLastName}.jpg)`,
           }}></div>
       </div>
       <figcaption className='absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  invisible group-hover:visible text-center'>
-        <div className='text-xl font-bold'>
+        <div className='text-xl font-bold cursor-default'>
           {props.firstName} {props.lastName}
         </div>
-        <div className='text-md font-medium mt-2'>
+        <div className='text-md font-medium mt-2 cursor-default'>
           {props.role}
         </div>
       </figcaption>
@@ -243,14 +249,14 @@ export default function Home() {
         <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
           Le thème &quot;ESCAPE&quot; a été choisi dans la lignée des deux précédentes éditions du TEDxENSEA (&quot;Bring Down the Walls&quot; et &quot;Explore New Paths&quot;), avec la volonté d&apos;amener les gens à reconsidérer leur façon de penser et remettre en question ce qu&apos;ils prenaient pour acquis.
         </p>
-        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%] mt-4'>
-          Et, c&apos;est également pour répondre à cette idée que nous avons soigneusement sélectionné nos 7 speakers.
+        <p className='text=[#A1A1A6] text-3xl font-bold max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%] mt-8'>
+          Le Samedi 5 février 2022 (14h - 19h) à l&apos;Auditorium de l&apos;IPSL.
         </p>
       </Section>
 
       <Section
         eyebrow="Nos speakers"
-        headline="Une thématique, ESCAPE. Un seul objectif, tous vous faire voyager à travers leurs prises de parole."
+        headline="Une thématique, ESCAPE. Un objectif, tous vous faire voyager à travers leurs prises de parole."
         id="speakers"
       >
 
@@ -311,34 +317,152 @@ export default function Home() {
         headline="Etudiants ingénieurs de l'Ecole Nationale Supérieure de l'Electronique et de ses Applications."
         id="team"
       >
-        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
-        L&apos;organisation du TEDxENSEA est organisée en 5 pôles: le pôle speakers, le pôle logistique, le pôle communication, le pôle partenariat et le pôle jour J.
-        </p>
+
+        <Pole
+          name="Bureau"
+          description=""
+        >
+          <TeamMember
+            firstName="Noah"
+            lastName="Delcourt"
+            role=""
+          />
+          <TeamMember
+            firstName="Alix"
+            lastName="Havret"
+            role=""
+          />
+          <TeamMember
+            firstName="Anne"
+            lastName="Couapel"
+            role=""
+          />
+          <TeamMember
+            firstName="Adrien"
+            lastName="Dupont"
+            role=""
+          />
+        </Pole>
 
         <Pole
           name="Le pôle speakers"
           description="Recrutement et suivi des conférenciers qui viendront à l&apos;événement."
         >
+          <TeamMember
+            firstName="Kaouding"
+            lastName="Savane"
+            role=""
+          />
+          <TeamMember
+            firstName="Judeson"
+            lastName="Anthony Fernando"
+            role=""
+          />
+          <TeamMember
+            firstName="Karl"
+            lastName="Lubbos"
+            role=""
+          />
+          <TeamMember
+            firstName="Nina"
+            lastName="Van"
+            role=""
+          />
+          <TeamMember
+            firstName="Bryan"
+            lastName="Guerineau"
+            role=""
+          />
+          <TeamMember
+            firstName="Michaela"
+            lastName="Dimitrova"
+            role=""
+          />
         </Pole>
         <Pole
           name="Le pôle logistique"
           description="Organisation de l&apos;évènement, choix des prestataires techniques."
         >
+          <TeamMember
+            firstName="Alicia"
+            lastName="Cande"
+            role=""
+          />
+          <TeamMember
+            firstName="Hugo"
+            lastName="Claudel"
+            role=""
+          />
+          <TeamMember
+            firstName="Coco"
+            lastName="Huet"
+            role=""
+          />
+          <TeamMember
+            firstName="Julie"
+            lastName="Mercier"
+            role=""
+          />
+          <TeamMember
+            firstName="Othmane"
+            lastName="Cherai"
+            role=""
+          />
+          <TeamMember
+            firstName="Jimmy"
+            lastName="Pan"
+            role=""
+          />
+          <TeamMember
+            firstName="Franck"
+            lastName="Schmitt"
+            role=""
+          />
         </Pole>
         <Pole
           name="Le pôle communication"
           description="Mise en place du plan de communication avant, pendant et après le TEDx, prise de contact avec les radios et journaux locaux pour davantage de visibilité."
         >
+          <TeamMember
+            firstName="Adam"
+            lastName="Cheikh Brahim"
+            role=""
+          />
+          <TeamMember
+            firstName="Zacharie"
+            lastName="Rodiere"
+            role=""
+          />
+          <TeamMember
+            firstName="Romain"
+            lastName="Joalland"
+            role=""
+          />
         </Pole>
         <Pole
           name="Le pôle partenariat"
           description="Recherche et suivi des sponsors."
         >
+          <TeamMember
+            firstName="Hardy"
+            lastName="Londou Laodjassondo"
+            role=""
+          />
         </Pole>
         <Pole
-          name="Le pôle jour J"
-          description="Préparation d&apos;un planning pour le Jour J, affectation des membres de l&apos;équipe à un rôle."
+          name="Devéloppement web"
+          description=""
         >
+          <TeamMember
+            firstName="Jathurchan"
+            lastName="Selvakumar"
+            role=""
+          />
+          <TeamMember
+            firstName="Mohammed"
+            lastName="Guitni"
+            role=""
+          />
         </Pole>
 
       </Section>
