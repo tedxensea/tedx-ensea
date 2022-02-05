@@ -51,7 +51,7 @@ function HeroSection(props) {
         </h1>
 
         <p className='mt-6 text-xl font-normal'>
-          <span className='block'>
+          <span className='block font-medium'>
             {props.date}
           </span>
           <span className='block'>
@@ -173,10 +173,25 @@ class SpeakerCard extends React.Component {
   }
 }
 
-function Team({ children }) {
+function Pole(props) {
   return (
-    <div className='grid grid-cols-none sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-      {children}
+    <div
+      className='p-6 mt-8 rounded-[30px] flex flex-col box-border'
+      style={{
+        background: `linear-gradient(to bottom, #061420 0%, #151516 100%)`,
+      }}
+    >
+      <header>
+        <h3 className='mb-2 text-xl font-semibold'>
+          {props.name}
+        </h3>
+        <p className='mt-4 text-base font-semibold'>
+          {props.description}
+        </p>
+      </header>
+      <div className='grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4'>
+        {props.children}
+      </div>
     </div>
   )
 }
@@ -211,7 +226,7 @@ export default function Home() {
       <HeroSection
         eyebrow="TEDxENSEA 2022"
         headline="ESCAPE"
-        date="Samedi 5 février 2022"
+        date="Samedi 5 février 2022 (14h - 19h)"
         location="Auditorium de l'IPSL"
         ctaP="Acheter votre billet"
         ctaP_url="https://ted-x-ensea.herokuapp.com/checkout"
@@ -226,10 +241,10 @@ export default function Home() {
         id="event"
       >
         <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
-        Le thème &quot;ESCAPE&quot; a été choisi dans la lignée des deux précédentes éditions du TEDxENSEA (&quot;Bring Down the Walls&quot; et &quot;Explore New Paths&quot;), avec la volonté d&apos;amener les gens à reconsidérer leur façon de penser et remettre en question ce qu&apos;ils prenaient pour acquis.
+          Le thème &quot;ESCAPE&quot; a été choisi dans la lignée des deux précédentes éditions du TEDxENSEA (&quot;Bring Down the Walls&quot; et &quot;Explore New Paths&quot;), avec la volonté d&apos;amener les gens à reconsidérer leur façon de penser et remettre en question ce qu&apos;ils prenaient pour acquis.
         </p>
         <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%] mt-4'>
-        Et, c&apos;est également pour répondre à cette idée que nous avons soigneusement sélectionné nos 7 speakers.
+          Et, c&apos;est également pour répondre à cette idée que nous avons soigneusement sélectionné nos 7 speakers.
         </p>
       </Section>
 
@@ -238,6 +253,7 @@ export default function Home() {
         headline="Une thématique, ESCAPE. Un seul objectif, tous vous faire voyager à travers leurs prises de parole."
         id="speakers"
       >
+
         <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
         Chaque intervenant vient dans le seul objectif de diffuser des idées qui lui sont chères, et qui en valent la peine !
         </p>
@@ -282,12 +298,49 @@ export default function Home() {
           <SpeakerCard
             firstName="Nassim"
             lastName="Larfa"
-            title="Pourquoi les insectes ne sont-ils toujours pas dans nos assiettes en 2022?"
-            description="En Europe, Laurent est le premier chef à avoir ouvert un restaurant où insectes et légumes de saison cohabitent dans l&apos;assiette. Les insectes ne sont pas son premier défi. En 1996, il avait lancé sa société de chef à domicile, Chef Service, une première en France, à l&apos;époque. Avec Inoveat, il se retrouve encore précurseur et fidèle à ses convictions : cuisine éco-responsable, saine et locale."
+            title="Faire vivre l&apos;ambition face au(x) choix"
+            description="Actuellement dans les couloirs d&apos;un ministère, je partage ma vie entre la passion pour les politiques publiques, les engagements associatifs en faveur des jeunes et le terrain de football. Bien que ce dernier point, Diplômé de l&apos;école des affaires publiques de Sciences Po Paris, Promotion 2018, j&apos;ai eu à cœur durant l&apos;ensemble de mon cursus de m&apos;engager dans le milieu associatif. Ainsi, j&apos;ai été Président d&apos;une association (Ambition Campus) où nous avons accompagné chaque année une centaine de lycéens et lycéennes durant leur année de Terminale ; aussi bien à travers de la préparation aux concours qu&apos;en les aidant à préparer leur orientation. Résolument convaincu de l&apos;intérêt de lutter contre les phénomènes d&apos;inégalités scolaires - s&apos;illustrant entre autres par l&apos;autocensure- je continue à intervenir régulièrement auprès de différents publics afin de mettre en place des stratégies pour leur permettre de réaliser des choix pertinents en matière d&apos;orientation scolaire. Aujourd’hui, les inégalités persistent et les choix d&apos;orientation restent encore trop souvent subis, pourtant plusieurs possibilités s&apos;offrent à ces lycéens pour faire un choix construit et désirable ; c&apos;est l’objet de ce talk."
           />
 
         </SpeakerCardStack>
           
+      </Section>
+
+      <Section
+        eyebrow="Notre équipe"
+        headline="Etudiants ingénieurs de l'Ecole Nationale Supérieure de l'Electronique et de ses Applications."
+        id="team"
+      >
+        <p className='text=[#A1A1A6] text-2xl font-medium max-w-[300px] md:max-w-xl lg:max-w-[75%] lg:basis-[75%]'>
+        L&apos;organisation du TEDxENSEA est organisée en 5 pôles: le pôle speakers, le pôle logistique, le pôle communication, le pôle partenariat et le pôle jour J.
+        </p>
+
+        <Pole
+          name="Le pôle speakers"
+          description="Recrutement et suivi des conférenciers qui viendront à l&apos;événement."
+        >
+        </Pole>
+        <Pole
+          name="Le pôle logistique"
+          description="Organisation de l&apos;évènement, choix des prestataires techniques."
+        >
+        </Pole>
+        <Pole
+          name="Le pôle communication"
+          description="Mise en place du plan de communication avant, pendant et après le TEDx, prise de contact avec les radios et journaux locaux pour davantage de visibilité."
+        >
+        </Pole>
+        <Pole
+          name="Le pôle partenariat"
+          description="Recherche et suivi des sponsors."
+        >
+        </Pole>
+        <Pole
+          name="Le pôle jour J"
+          description="Préparation d&apos;un planning pour le Jour J, affectation des membres de l&apos;équipe à un rôle."
+        >
+        </Pole>
+
       </Section>
 
     </Layout>
