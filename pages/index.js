@@ -339,7 +339,7 @@ export default function Home() {
           />
           <TeamMember
             firstName="Adrien"
-            lastName="Dupont"
+            lastName="Lenoir"
             role=""
           />
         </Pole>
@@ -450,7 +450,7 @@ export default function Home() {
           />
         </Pole>
         <Pole
-          name="Devéloppement web"
+          name="Développement web"
           description=""
         >
           <TeamMember
