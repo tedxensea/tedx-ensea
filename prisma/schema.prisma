@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider              = "mysql"
+  url                   = env("DATABASE_URL")
+  referentialIntegrity  = "prisma"
+}
+
+generator client {
+  provider              = "prisma-client-js"
+  previewFeatures       = ["referentialIntegrity"]
+}
+
+model Event {
+  year        Int       @db.Year @id
+
+  theme       String    @db.VarChar(255)
+  dateTime    DateTime  @db.DateTime()
+  location    String    @db.VarChar(255)
+  latitude    Int       @db.Int
+  longitude   Int       @db.Int
+
+  headline    String    @db.VarChar(255)
+  description String    @db.Text
+
+  speakers Speaker[]
+  teams Team[]
+  attendees Attendee[]
+
+}
+
+model Speaker {
+  id                Int     @id
+
+  firstName         String  @db.VarChar(255)
+  lastName          String  @db.VarChar(255)
+
+  profileImageUrl   String? @db.Text
+  linkedInUrl       String? @db.Text
+  
+  title             String  @db.Text
+  description       String  @db.Text
+
+  event             Event   @relation(fields: [eventYear], references: [year])
+  eventYear         Int
+  
+}
+
+model Team {
+  id            Int     @default(autoincrement()) @id
+
+  title         String  @db.Text
+  description   String  @db.Text
+
+  event         Event   @relation(fields: [eventYear], references: [year])
+  eventYear     Int
+
+  members       Member[]
+}
+
+model Member {
+  id                Int @default(autoincrement()) @id
+  
+  firstName         String    @db.VarChar(255)
+  lastName          String    @db.VarChar(255)
+
+  profileImageUrl   String?   @db.Text
+
+  team              Team      @relation(fields: [teamId], references: [id])
+  teamId            Int
+  isHead            Boolean   @db.TinyInt()
+}
+
+model Attendee {
+  id                Int @default(autoincrement()) @id
+  
+  firstName         String    @db.VarChar(255)
+  lastName          String    @db.VarChar(255)
+
+  email             String    @db.Text
+
+  createdAt DateTime @default(now())
+
+  event         Event   @relation(fields: [eventYear], references: [year])
+  eventYear     Int
+}
+
+
