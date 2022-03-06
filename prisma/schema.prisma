@@ -19,7 +19,50 @@ model Event {
   location    String?
   latitude    Decimal?
   longitude   Decimal?
+  speakers Speaker[]
+  teams Team[]
+  attendees Attendee[]
+}
 
+model Speaker {
+  id               Int      @id @default(autoincrement())
+  firstName        String
+  lastName         String
+  profileImageUrl  String?
+  linkedInUrl      String?
+  title            String
+  description      String   @db.LongText
+  event            Event    @relation(fields: [eventYear], references: [year])
+  eventYear        Int 
+}
+
+model Team {
+  id            Int     @id @default(autoincrement())
+  title         String
+  description   String  @db.LongText
+  event         Event   @relation(fields: [eventYear], references: [year])
+  eventYear     Int
+  members       Member[]
+}
+
+model Member {
+  id                Int       @id @default(autoincrement())
+  firstName         String
+  lastName          String
+  profileImageUrl   String?
+  team              Team      @relation(fields: [teamId], references: [id])
+  teamId            Int
+  isHead            Boolean
+}
+
+model Attendee {
+  id                Int       @id @default(autoincrement())
+  firstName         String
+  lastName          String
+  email             String
+  createdAt         DateTime  @default(now())
+  event             Event     @relation(fields: [eventYear], references: [year])
+  eventYear         Int
 }
 
 
