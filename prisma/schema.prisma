@@ -19,8 +19,6 @@ model Event {
   location    String?
   latitude    Decimal?
   longitude   Decimal?
-  headline    String
-  description String
   speakers Speaker[]
   teams Team[]
   attendees Attendee[]
