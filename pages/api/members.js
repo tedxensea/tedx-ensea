@@ -7,11 +7,11 @@ export default async function assetHandler(req, res) {
     switch (method) {
         case 'GET':
             try {
-                const events = await prisma.event.findMany();
-                res.status(200).json(events);
+                const members = await prisma.member.findMany();
+                res.status(200).json(members);
             } catch (e) {
                 console.error('Request error', e);
-                res.status(500).json({ error: 'Error fetching events' });
+                res.status(500).json({ error: 'Error fetching members' });
             }
             break;
         default:
