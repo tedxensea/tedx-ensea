@@ -17,8 +17,8 @@ model Event {
   theme       String
   dateTime    DateTime?
   location    String?
-  latitude    Decimal?
   longitude   Decimal?
+  latitude    Decimal?
   headline    String
   description String
   speakers Speaker[]
@@ -27,21 +27,21 @@ model Event {
 }
 
 model Speaker {
-  id               Int     @id @default(autoincrement())
+  id               Int      @id @default(autoincrement())
   firstName        String
   lastName         String
   profileImageUrl  String?
   linkedInUrl      String?
   title            String
-  description      String
-  event            Event   @relation(fields: [eventYear], references: [year])
+  description      String   @db.LongText
+  event            Event    @relation(fields: [eventYear], references: [year])
   eventYear        Int 
 }
 
 model Team {
   id            Int     @id @default(autoincrement())
   title         String
-  description   String
+  description   String  @db.LongText
   event         Event   @relation(fields: [eventYear], references: [year])
   eventYear     Int
   members       Member[]
