@@ -17,8 +17,8 @@ model Event {
   theme       String
   dateTime    DateTime?
   location    String?
-  longitude   Decimal?
   latitude    Decimal?
+  longitude   Decimal?
   headline    String
   description String
   speakers Speaker[]
