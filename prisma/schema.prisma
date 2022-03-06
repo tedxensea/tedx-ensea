@@ -31,7 +31,7 @@ model Speaker {
   profileImageUrl  String?
   linkedInUrl      String?
   title            String
-  description      String
+  description      String?  @db.Text
   event            Event    @relation(fields: [eventYear], references: [year])
   eventYear        Int 
 }
@@ -39,7 +39,7 @@ model Speaker {
 model Team {
   id            Int     @id @default(autoincrement())
   title         String
-  description   String  @db.LongText
+  description   String? @db.Text
   event         Event   @relation(fields: [eventYear], references: [year])
   eventYear     Int
   members       Member[]
