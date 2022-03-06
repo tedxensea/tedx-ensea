@@ -31,7 +31,7 @@ model Speaker {
   profileImageUrl  String?
   linkedInUrl      String?
   title            String
-  description      String   @db.LongText
+  description      String
   event            Event    @relation(fields: [eventYear], references: [year])
   eventYear        Int 
 }
