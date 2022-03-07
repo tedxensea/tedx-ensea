@@ -5,7 +5,7 @@ import React from 'react'
 import GlobalNav from '../components/globalnav'
 
 function GlobalFooter() {
-  return <p className='mt-24 mb-4 text-center text-sm'>Copyright © 2018-2022 TEDxENSEA. Tous droits réservés.</p>
+  return <p className='mt-24 mb-4 text-center text-sm'>Copyright © 2018-2022 TEDxENSEA - An independently organized TEDx event operated under license from TED.</p>
 }
 
 function Layout({ children }) {
