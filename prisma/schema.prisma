@@ -65,4 +65,12 @@ model Attendee {
   eventYear         Int
 }
 
+model Partner {
+  id            Int       @id @default(autoincrement())
+  name          String
+  description   String?
+  logoUrl       String?
+  url           String?
+}
+
 
