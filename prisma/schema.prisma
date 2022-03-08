@@ -22,6 +22,7 @@ model Event {
   speakers Speaker[]
   teams Team[]
   attendees Attendee[]
+  partners Partner[]
 }
 
 model Speaker {
@@ -71,6 +72,8 @@ model Partner {
   description   String?
   logoUrl       String?
   url           String?
+  event             Event     @relation(fields: [eventYear], references: [year])
+  eventYear         Int
 }
 
 
