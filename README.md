@@ -6,7 +6,7 @@ Anyone trying to update the web application, please feel free to contact me if a
 
 *I created this application very quickly so I could not optimize everything.
 Many things can be improved.
-But I think I have put the necessary foundations to do so.*
+Yet, I think I have put the necessary foundations to do so.*
 
 
 @jathurchan
